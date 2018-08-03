@@ -60,7 +60,7 @@ public class Pack extends CardSet {
 		String getRare = "È²±Ý	Èñ±Í Ä«µå [R]";
 		String getRare2 = "È²±Ý	Èñ±Í Ä«µå(º¸Á¤) [R]";
 		if (openResult[result].equals(getRare) || openResult[result].equals(getRare2)) {
-			System.out.print("!!!");
+			System.out.print("<!>");
 		}
 
 		System.out.println(openResult[result]);
