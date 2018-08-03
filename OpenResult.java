@@ -17,6 +17,7 @@ public class OpenResult {
 			s.howMany();
 		}
 
+		s.result();
 		
 	}
 } 

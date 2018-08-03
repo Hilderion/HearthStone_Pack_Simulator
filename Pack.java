@@ -20,33 +20,33 @@ public class Pack extends CardSet {
 	
 		// 21 보다 작다면 R (1~20)
 		if (getCardRate() < getRareRate() ) {
-			openResult[result] = "희귀 카드 [R]";
+			openResult[result] = "	희귀 카드 [R]";
 			rare ++;
 
 		// 24 보다 작다면 SR (21 ~ 24)
 		} else if (getCardRate() <getSRareRate() && getCardRate() >= getRareRate() ) {
-			openResult[result] = "영웅 카드 [SR]";
+			openResult[result] = "	영웅 카드 [SR]";
 			sRare ++;
 
 		// 25면 SSR (25)
 		} else if (getCardRate() == getSsRareRate()) {
-			openResult[result] = "전-설 카드 [SSR]";
+			openResult[result] = "	전-설 카드 [SSR]";
 			ssRare ++;
 
 		} else if (getCardRate() > getSsRareRate()) {
-			openResult[result] = "일반 카드";
+			openResult[result] = "	일반 카드";
 			normal ++;
 			normalRate ++;
 		} 
 
 
 		if (normalRate == 5) {
-				openResult[result] = "희귀카드(보정) [R]";		
+				openResult[result] = "	희귀 카드(보정) [R]";		
 			}
 		
 
 		if (getCardRate() > getGoldenRate()) {
-			openResult[result] = "황금 " + openResult[result];
+			openResult[result] = "황금" + openResult[result];
 
 		}
 
@@ -57,10 +57,10 @@ public class Pack extends CardSet {
 		}
 
 		// 단위테스트 (희귀) 
-		String getRare = "황금 희귀카드 [R]";
-		String getRare2 = "황금 희귀카드(보정) [R]";
+		String getRare = "황금	희귀 카드 [R]";
+		String getRare2 = "황금	희귀 카드(보정) [R]";
 		if (openResult[result].equals(getRare) || openResult[result].equals(getRare2)) {
-			System.out.print(" >>>>> ");
+			System.out.print("<!>");
 		}
 
 		System.out.println(openResult[result]);
@@ -79,6 +79,19 @@ public class Pack extends CardSet {
 
 		normalRate=0;
 
+	}
+
+	public void totalResult() {
+		System.out.println("전설 카드 : " + ssRare + "장");
+		System.out.println("영웅 카드 : " + sRare+ "장");
+		System.out.println("희귀 카드 : " + rare+ "장");
+		System.out.println("일반 카드 : " + normal+ "장");
+	}
+
+	public int caclulateDust() {
+		int dust = ssRare * 400 + sRare * 100 + rare * 20 + normal * 5;
+		System.out.println("가루 : " + dust);
+		return dust;
 
 	}
 }
