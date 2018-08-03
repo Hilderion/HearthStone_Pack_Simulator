@@ -15,6 +15,5 @@ public class OpenResult {
 		}
 
 		s.result();
-		
 	}
 } 

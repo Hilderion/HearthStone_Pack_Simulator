@@ -1,7 +1,6 @@
 
 public class Shop extends Pack{
 
-
 	public void howMany() {
 		openResult();
 		System.out.println("------------------------------------------------------");
@@ -11,6 +10,7 @@ public class Shop extends Pack{
 	public void result() {
 		totalResult();
 		caclulateDust();
+		unitTestResult();
 	}
 }
 

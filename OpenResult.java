@@ -13,7 +13,6 @@ public class OpenResult {
 		for (int i=0; i<number ; i++) {
 			s.howMany();
 		}
-
 		s.result();
 	}
 } 

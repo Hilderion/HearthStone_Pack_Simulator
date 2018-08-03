@@ -12,6 +12,9 @@ public class Pack extends CardSet {
 
 	private int countPack = 0;
 
+	private int unitTest = 0;
+	private int unitTestCompare = 0;
+
 	// String[] 안에 넣은 만큼 개봉할 수 있다. (5 :1)
 	String openResult[] = new String[5000];
 
@@ -45,7 +48,9 @@ public class Pack extends CardSet {
 
 
 		if (normalRate == 5) {
-				openResult[result] = "	희귀 카드(보정) [R]";		
+				openResult[result] = "	희귀 카드(보정) [R]";	
+				rare ++;
+				normal --;
 			}
 		
 
@@ -54,7 +59,7 @@ public class Pack extends CardSet {
 
 		}
 
-		System.out.println(openResult[result]);
+		System.out.print(openResult[result]);
 
 
 		// 황금 전-설 카드 [SSR] 서치
@@ -64,12 +69,20 @@ public class Pack extends CardSet {
 			goldenLegend ++;
 		}
 
+		// TODO : 직접 문자열을 넣어서 .equals()를 쓸 수도 있다.
+		// "황금	전-설 카드 [SSR]".equals(openResult[result]);
+
 		// 단위테스트 (희귀) 
 		String getRare = "황금	희귀 카드 [R]";
 		String getRare2 = "황금	희귀 카드(보정) [R]";
 		if (openResult[result].equals(getRare) || openResult[result].equals(getRare2)) {
-			System.out.println("<!>");
+			System.out.print("		<!>");
+			unitTest ++;
+			unitTestCompare = countPack;
+
 		}
+		
+		System.out.println();
 
 
 		result ++;
@@ -105,6 +118,19 @@ public class Pack extends CardSet {
 		int dust = ssRare * 400 + sRare * 100 + rare * 20 + normal * 5;
 		System.out.println("가루 : " + dust);
 		return dust;
+
+	}
+
+	public void unitTestResult() {
+		System.out.println("======");
+
+		
+
+		if (unitTest > 0) {
+			System.out.println ("유닛 테스트가 발생한 팩 : " + unitTestCompare);
+		} else {
+			System.out.println("유닛 테스트 발생 결과 없음.");
+		} 
 
 	}
 }
