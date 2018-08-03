@@ -6,7 +6,7 @@ public class OpenResult {
 		Shop s = new Shop();
 
 		Scanner scn = new Scanner(System.in);
-		System.out.print("몇 팩 까시겠습니까?  : ");
+		System.out.print("몇 팩 까시겠습니까? (최고 1000팩)  : ");
 				int number = scn.nextInt();
 
 	
@@ -17,7 +17,7 @@ public class OpenResult {
 			s.howMany();
 		}
 
-		s.reuslt();
+		s.result();
 		
 	}
 } 

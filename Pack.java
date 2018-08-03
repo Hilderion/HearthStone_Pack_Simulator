@@ -8,6 +8,9 @@ public class Pack extends CardSet {
 	private int ssRare = 0;
 
 	private int normalRate = 0;
+	private int goldenLegend = 0;
+
+	private int countPack = 0;
 
 	// String[] 안에 넣은 만큼 개봉할 수 있다. (5 :1)
 	String openResult[] = new String[5000];
@@ -15,6 +18,7 @@ public class Pack extends CardSet {
 	public void open() {
 
 		rndGen();
+
 
 		// 1번부터 5장까지 뽑아가는 반복문
 	
@@ -50,20 +54,23 @@ public class Pack extends CardSet {
 
 		}
 
+		System.out.println(openResult[result]);
+
+
 		// 황금 전-설 카드 [SSR] 서치
-		String getGold = "황금 전-설 카드 [SSR]";
+		String getGold = "황금	전-설 카드 [SSR]";
 		if (openResult[result].equals(getGold)) {
 			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			goldenLegend ++;
 		}
 
 		// 단위테스트 (희귀) 
 		String getRare = "황금	희귀 카드 [R]";
 		String getRare2 = "황금	희귀 카드(보정) [R]";
 		if (openResult[result].equals(getRare) || openResult[result].equals(getRare2)) {
-			System.out.print("<!>");
+			System.out.print("		<!>");
 		}
 
-		System.out.println(openResult[result]);
 
 		result ++;
 
@@ -71,6 +78,9 @@ public class Pack extends CardSet {
 
 	public void openResult() {
 		
+		System.out.println("[" + (countPack + 1) + " 팩]");
+		countPack ++;
+
 		// 1팩 (5장 개봉)
 		for (int i = 0; i<5; i++) {
 			open();
@@ -86,6 +96,9 @@ public class Pack extends CardSet {
 		System.out.println("영웅 카드 : " + sRare+ "장");
 		System.out.println("희귀 카드 : " + rare+ "장");
 		System.out.println("일반 카드 : " + normal+ "장");
+		if (goldenLegend > 1) {
+			System.out.println("	황금 전설 카드 : " + goldenLegend + "장");
+		}
 	}
 
 	public int caclulateDust() {
